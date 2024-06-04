@@ -17,10 +17,10 @@ public class CircuitTest {
 
         Circuit circuit = new Circuit(Arrays.asList(carA, carB, carC));
         RacingReport racingReport = circuit.race();
-        List<Car> fastestCars = racingReport.getFastestCars();
+        List<String> names = racingReport.getFastestCarNames();
 
-        assertThat(fastestCars).doesNotContain(carA);
-        assertThat(fastestCars).contains(carB, carC);
+        assertThat(names).doesNotContain("A");
+        assertThat(names).contains("B","C");
 
     }
 }

@@ -9,9 +9,9 @@ public class RacingReport {
         this.cars = cars;
     }
 
-    public List<Car> getFastestCars() {
+    public List<String> getFastestCarNames() {
         Integer maxPosition = cars.getCars().stream().map(Car::getPosition).max(Integer::compareTo).get();
-        return cars.getCars().stream().filter(car -> car.getPosition() == maxPosition)
+        return cars.getCars().stream().filter(car -> car.getPosition() == maxPosition).map(Car::getName)
                 .collect(Collectors.toList());
     }
 
