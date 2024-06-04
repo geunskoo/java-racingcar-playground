@@ -1,4 +1,3 @@
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +16,7 @@ public class CarTest {
 
     @Test
     @DisplayName("4이상일 경우 좋은 기름이 생성된다.")
-    void racer_ShouldInFuel(){
+    void goodFuel_ShouldOverFour(){
         Fuel goodFuel = new Fuel(5);
         Fuel badFuel = new Fuel(1);
         boolean goodFuelResult = goodFuel.isAbleToUse();
