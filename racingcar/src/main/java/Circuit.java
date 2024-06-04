@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Circuit {
@@ -21,7 +22,8 @@ public class Circuit {
     }
 
     public RacingReport race() {
-
+        Random random = new Random();
+        cars.forEach(car -> car.move(new Fuel(random.nextInt(9))));
         return new RacingReport(this);
     }
 

@@ -5,6 +5,10 @@ public class RacingReport {
 
     private Circuit cars;
 
+    public RacingReport(){
+
+    }
+
     public RacingReport(Circuit cars) {
         this.cars = cars;
     }
@@ -15,4 +19,14 @@ public class RacingReport {
                 .collect(Collectors.toList());
     }
 
+    public void printCurrentCars() {
+        cars.getCars().forEach(car -> System.out.println(car.toString()));
+        System.out.println();
+    }
+
+    public void printFastestCarNames() {
+        List<String> names = getFastestCarNames();
+        String result = names.stream().collect(Collectors.joining(","));
+        System.out.println(result + "가 최종 우승했습니다.");
+    }
 }
