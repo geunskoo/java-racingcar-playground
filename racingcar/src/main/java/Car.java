@@ -1,4 +1,4 @@
-public class Car {
+public class Car{
 
     private String name;
     private int position;
@@ -10,6 +10,10 @@ public class Car {
 
     public int forward() {
         this.position += 1;
+        return this.position;
+    }
+
+    public int getPosition() {
         return this.position;
     }
 }
