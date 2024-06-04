@@ -8,6 +8,11 @@ public class Car{
         this.position = position;
     }
 
+    public Car(String name) {
+        this.name = name;
+        this.position = 0;
+    }
+
     public int move(Fuel fuel) {
         if (fuel.isAbleToUse()){
             this.position += 1;

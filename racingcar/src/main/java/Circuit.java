@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Circuit {
 
@@ -6,6 +8,16 @@ public class Circuit {
 
     public Circuit(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public Circuit(String carNames) {
+        this.cars = mapCars(carNames);
+    }
+
+    private static List<Car> mapCars(String carNames) {
+        return Arrays.stream(carNames.split(","))
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     public RacingReport race() {
