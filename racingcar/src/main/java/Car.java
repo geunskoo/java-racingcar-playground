@@ -8,8 +8,10 @@ public class Car{
         this.position = position;
     }
 
-    public int forward() {
-        this.position += 1;
+    public int move(Fuel fuel) {
+        if (fuel.isAbleToUse()){
+            this.position += 1;
+        }
         return this.position;
     }
 
