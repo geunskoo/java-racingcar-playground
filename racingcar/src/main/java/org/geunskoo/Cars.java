@@ -56,6 +56,13 @@ public class Cars {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return cars.stream()
+                .map(Car::getStringNameAndPosition)
+                .collect(Collectors.joining("\n"));
+    }
+
     public static String convertCommaSeparateNames(List<Car> winners) {
         return winners.stream()
                 .map(Car::getStringName)
