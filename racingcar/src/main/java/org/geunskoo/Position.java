@@ -4,11 +4,20 @@ import java.util.Objects;
 
 public class Position {
 
-    private final int MOVE_VALUE = 1;
+    private static final int LOW_BOUND_ARGUMENT = 0;
+    private static final int MOVE_VALUE = 1;
+
     private final int position;
 
     public Position(int position) {
+        validateArgument(position);
         this.position = position;
+    }
+
+    private void validateArgument(int position) {
+        if (position < LOW_BOUND_ARGUMENT){
+            throw new IllegalArgumentException("위치 값은 음의 정수 값이 될 수 없습니다.");
+        }
     }
 
     public Position increase() {
