@@ -24,4 +24,25 @@ class RacingGameTest {
 
         assertThat(winners).containsExactly(carA,carB,carC);
     }
+
+    @Test
+    @DisplayName("자동차 경주 횟수가 완료된 후 경기 우승자는 반드시 존재한다.")
+    void RacingGame_ShouldHaveWinners(){
+
+        RacingGame racingGame = new RacingGame(() -> true);
+
+        Car carA = new Car("A",0);
+        Car carB = new Car("B",0);
+        Car carC = new Car("C",0);
+        Car carD = new Car("D",0);
+        Cars cars = new Cars(Arrays.asList(carA,carB,carC, carD));
+
+        int raceTimes= 5;
+
+        Cars winnerCars = racingGame.start(cars, raceTimes);
+        List<Car> winners = winnerCars.findWinners();
+
+        assertThat(winners.size()).isGreaterThan(0);
+        assertThat(winners).containsExactly(carA, carB, carC, carD);
+    }
 }

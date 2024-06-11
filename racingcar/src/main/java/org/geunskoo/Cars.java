@@ -1,5 +1,6 @@
 package org.geunskoo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,6 +10,10 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public Cars() {
+        this.cars = new ArrayList<>();
     }
 
     public List<Car> findWinners() {
