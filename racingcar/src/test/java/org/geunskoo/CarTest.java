@@ -1,8 +1,9 @@
 package org.geunskoo;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -27,6 +28,15 @@ class CarTest {
     void Exception_ShouldOccurNotBoundRangeNumber(){
         assertThatThrownBy(
                 () -> new Position(-1)
+        ).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"김태근김태근" , ""})
+    @DisplayName("자동차 이름 값에 5자리 초과 값과 공백이 올수 없다.")
+    void Exception_ShouldOccurBlankNameAndOverLength5(String input){
+        assertThatThrownBy(
+                () -> new Name(input)
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
