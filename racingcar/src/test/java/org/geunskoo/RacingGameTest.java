@@ -39,7 +39,7 @@ class RacingGameTest {
 
         int raceTimes= 5;
 
-        Cars winnerCars = racingGame.start(cars, raceTimes);
+        Cars winnerCars = racingGame.race(cars, raceTimes);
         List<Car> winners = winnerCars.findWinners();
 
         assertThat(winners.size()).isGreaterThan(0);
