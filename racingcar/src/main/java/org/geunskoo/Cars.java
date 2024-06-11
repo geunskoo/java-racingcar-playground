@@ -29,4 +29,11 @@ public class Cars {
         }
         return maxPosition;
     }
+
+    public Cars race(Movable movable) {
+        for (Car car : cars) {
+            car.move(movable);
+        }
+        return this;
+    }
 }
