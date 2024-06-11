@@ -1,6 +1,5 @@
 package org.geunskoo;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,7 @@ class RacingGameTest {
 
     @Test
     @DisplayName("자동차 경주 race당 모든 자동차들이 움직인다.")
-    void create(){
+    void racingGame_ShouldMakeCarsMove(){
         RacingGame racingGame = new RacingGame(() -> true);
         Car carA = new Car("A",0);
         Car carB = new Car("B",0);
