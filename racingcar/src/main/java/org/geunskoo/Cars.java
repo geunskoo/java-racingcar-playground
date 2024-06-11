@@ -16,6 +16,20 @@ public class Cars {
         this.cars = new ArrayList<>();
     }
 
+    public static Cars from(String carNames) {
+        List<Car> cars = mapStringToCars(carNames);
+        return new Cars(cars);
+    }
+
+    private static List<Car> mapStringToCars(String carNames) {
+        List<Car> cars = new ArrayList<>();
+        String[] names = carNames.split(",");
+        for (String name : names) {
+            cars.add(new Car(name, 0));
+        }
+        return cars;
+    }
+
     public List<Car> findWinners() {
         Position maxPosition = getMaxPosition();
         return getWinners(maxPosition);
@@ -41,4 +55,11 @@ public class Cars {
         }
         return this;
     }
+
+    public static String convertCommaSeparateNames(List<Car> winners) {
+        return winners.stream()
+                .map(Car::getStringName)
+                .collect(Collectors.joining(", "));
+    }
+    
 }

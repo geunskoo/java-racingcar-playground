@@ -15,4 +15,8 @@ public class Name {
             throw new IllegalArgumentException("자동차 이름은 공백 또는 5자리 초과 설정이 불가능합니다.");
         }
     }
+
+    public String getValue() {
+        return name;
+    }
 }
