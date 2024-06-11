@@ -16,7 +16,14 @@ public class Car {
         }
     }
 
-    public boolean isSamePlaced(int position) {
-        return this.position.isSame(position);
+    public boolean isSamePlaced(Position position) {
+        return this.position.equals(position);
+    }
+
+    public Position biggerCarPosition(Position position) {
+        if (this.position.greaterThan(position)){
+            return this.position;
+        }
+        return position;
     }
 }

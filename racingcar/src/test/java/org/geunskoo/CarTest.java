@@ -17,8 +17,8 @@ class CarTest {
         carA.move(() -> true);
         carB.move(() -> false);
 
-        assertThat(carA.isSamePlaced(2)).isTrue();
-        assertThat(carB.isSamePlaced(0)).isTrue();
+        assertThat(carA.isSamePlaced(new Position(2))).isTrue();
+        assertThat(carB.isSamePlaced(new Position(0))).isTrue();
     }
 
 }
