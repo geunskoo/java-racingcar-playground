@@ -1,7 +1,7 @@
 package org.geunskoo;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -17,13 +17,9 @@ public class Cars {
     }
 
     private List<Car> getWinners(Position maxPosition) {
-        List<Car> winners = new ArrayList();
-        for (Car car : cars) {
-            if (car.isSamePlaced(maxPosition)){
-                winners.add(car);
-            }
-        }
-        return winners;
+        return cars.stream()
+                .filter(car -> car.isSamePlaced(maxPosition))
+                .collect(Collectors.toList());
     }
 
     private Position getMaxPosition() {
