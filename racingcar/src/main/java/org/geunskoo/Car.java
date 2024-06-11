@@ -1,24 +1,22 @@
 package org.geunskoo;
 
-import java.util.Random;
-
 public class Car {
 
-    private final String name;
-    private int position;
+    private final Name name;
+    private Position position;
 
     public Car(String name, int position) {
-        this.name = name;
-        this.position = position;
+        this.name = new Name(name);
+        this.position = new Position(position);
     }
 
     public void move(Movable randomMovable) {
         if (randomMovable.isMovable()){
-            this.position ++;
+            this.position = position.increase();
         }
     }
 
-    public int getPosition() {
-        return this.position;
+    public boolean isSamePlaced(int position) {
+        return this.position.isSame(position);
     }
 }
